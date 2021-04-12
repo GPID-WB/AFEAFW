@@ -6,15 +6,18 @@ Creation Date:     March 2021 PovcalNet update
 ==================================================*/
 
 /*==================================================
-//1.1 Get auxiliary data
+// Install necessary packages
 ==================================================*/
 
-local cmds "renvars povcalnet"
+local cmds "renvars povcalnet _gwtmean"
 
 foreach cmd of local cmds {
 	cap which `cmd'
 	if (_rc) ssc install `cmd'
 }
+/*==================================================
+//1.1 Get auxiliary data
+==================================================*/
 
 //population data 
 insheet using "http://iresearch.worldbank.org/PovcalNet/js/population.js", clear
